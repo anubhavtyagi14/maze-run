@@ -1,0 +1,19 @@
+<div style="text-align: center;">
+  <h2>Welcome to Maze Run</h2>
+  <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="32px" fxLayoutAlign="center">
+    <button mat-icon-button class="refresh-button" *ngIf="showReset" aria-label="Reset levels"
+      (click)="reset()" title="Reset levels">
+      <mat-icon>refresh</mat-icon>
+    </button>
+  </div>
+  <mat-grid-list cols="2" [gridCols]="{xs: 2, sm: 2, md: 2, lg: 3, xl: 3}" rowHeight="2:1" gutterSize="10">
+    <mat-grid-tile *ngFor="let level of levels" (click)="goToMaze(level)">
+      <div *ngIf="level.completed || level.id === this.currentLevel.id; else locked">
+        <h3>{{level.name}}</h3>
+      </div>
+      <ng-template #locked>
+        <mat-icon>lock</mat-icon>
+      </ng-template>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

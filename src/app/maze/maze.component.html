@@ -1,0 +1,61 @@
+<div style="text-align: center;">
+  <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="32px" fxLayoutAlign="center">
+
+    <!-- <mat-form-field appearance="outline" fxFlex="0 1 calc(10% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)"
+      fxFlex.lt-sm="100%">
+      <mat-label>Rows</mat-label>
+      <input matInput type="number" [(ngModel)]="row" min="1" max="100">
+    </mat-form-field>
+
+
+    <mat-form-field appearance="outline" fxFlex="0 1 calc(10% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)"
+      fxFlex.lt-sm="100%">
+      <mat-label>Columns</mat-label>
+      <input matInput type="number" [(ngModel)]="col" min="1" max="100">
+    </mat-form-field> -->
+    <div fxFlex="0 1 calc(25% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%" class="button-row">
+      <button style="float: left;margin: 12px 0 0;" mat-mini-fab color="primary" (click)="goBackToHome()"
+        matTooltip="Go back">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <!-- <button mat-flat-button color="primary" (click)="drawMaze()">New Maze</button> -->
+      <button mat-flat-button color="accent" *ngIf="!hasSolved" (click)="drawSolution()">Solution</button>
+      <button mat-icon-button class="refresh-button" *ngIf="!hasSolved" aria-label="retry my solution" (click)="clearMyPath()"
+        title="retry my solution">
+        <mat-icon>refresh</mat-icon>
+      </button>
+      <button mat-flat-button (click)="test()" *ngIf="showTestButton">Test</button>
+    </div>
+
+
+
+  </div>
+  <section>
+    <canvas id="maze"></canvas>
+  </section>
+  <section>
+    <div class="arrows" *ngIf="!hasSolved">
+      <div>
+        <button mat-icon-button class="play-button" aria-label="move up" title="move up" (click)="move('Up')">
+          <mat-icon>arrow_upward</mat-icon>
+        </button>
+      </div>
+      <div>
+        <button mat-icon-button class="play-button" aria-label="move left" (click)="move('Left')" title="move left">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+        <span style="display: inline-block;width: 54px;"></span>
+        <button mat-icon-button class="play-button" aria-label="move right" (click)="move('Right')" title="move right">
+          <mat-icon>arrow_forward</mat-icon>
+        </button>
+
+      </div>
+      <div>
+        <button mat-icon-button class="play-button" aria-label="move down" (click)="move('Down')" title="move down">
+          <mat-icon>arrow_downward</mat-icon>
+        </button>
+
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.button-row {
+  padding: 16px 0;
+  button,
+  a {
+    margin-right: 8px;
+  }
+}
+
+button.refresh-button {
+  width: 64px;
+  height: 64px;
+  mat-icon {
+    width: 48px;
+    height: 48px;
+    line-height: 48px;
+    font-size: 48px;
+  }
+}
+button.play-button{
+  width: 80px;
+  height: 80px;
+  mat-icon {
+    width: 64px;
+    height: 64px;
+    line-height: 64px;
+    font-size: 64px;
+  }
+}
